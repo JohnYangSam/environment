@@ -57,6 +57,11 @@ install openssl
 install wireshark
 install tmux
 
+# You may need this for powerline
+# See: http://superuser.com/questions/762345/powerline-patched-fonts-on-osx-10-9-3-iterm2-chrome
+# and: https://github.com/Lokaltog/powerline-fonts
+install fontforge --with-python
+
 # Databases
 install sqlite
 install mysql
