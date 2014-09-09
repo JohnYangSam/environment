@@ -175,6 +175,8 @@ if [[ `uname` == 'Darwin' ]]; then
         unzip -o ../settings.jar -d ./init/AndroidStudio/AndroidStudioPreferences # unzip to location and overwrite
         gnu stow --target-dir='~/Library/Preferences/AndroidStudioBeta/colors/' ./init/AndroidStudio/AndroidStudioPreferences
 
+    # Userful post on Resetting Android Studio: http://stackoverflow.com/questions/19384033/how-to-reset-android-studio
+
     fi
 fi
 
