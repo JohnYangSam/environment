@@ -25,6 +25,9 @@ if [[ `uname` == 'Darwin' ]]; then
         echo "Homebrew must be installed for the rest of the setup. Quitting setup."
         exit 1
     fi
+else # [[ `uname` == 'Linux ]]
+    # Install stow on a Linux machine
+    sudo-apt-get -y install stow
 fi
 
 if install_ask "bash"; then
@@ -158,10 +161,20 @@ if install_ask "vim"; then
     vim +NeoBundleInstall +q
 fi
 
-# Sublime settings on Mac
+# Mac Specific installs
 if [[ `uname` == 'Darwin' ]]; then
+
+    # Sublime settings on Mac
     if install_ask "sublime User and Anaconda settings"; then
-        stow --target-dir='~/Library/Application Support/Sublime Text 3/Packages/User/' sublime
+        stow --target-dir='~/Library/Application Support/Sublime Text 3/Packages/User/' ./init/sublime
+    fi
+
+    # Android Studio settings on Mac
+    if install_ask "Android Studio settings (will overwrite)"; then
+        # TODO: Is it better to extract and stow or or extract directly to the location?
+        unzip -o ../settings.jar -d ./init/AndroidStudio/AndroidStudioPreferences # unzip to location and overwrite
+        gnu stow --target-dir='~/Library/Preferences/AndroidStudioBeta/colors/' ./init/AndroidStudio/AndroidStudioPreferences
+
     fi
 fi
 
