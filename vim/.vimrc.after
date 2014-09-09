@@ -1,0 +1,22 @@
+
+" Set vim tabs to 4 and make them spaces
+set tabstop=4 shiftwidth=2 expandtab
+
+" Allow backspace in insert mode
+set backspace=indent,eol,start
+
+" Enable line numbers
+set number
+
+" Ignore case when searching
+set incsearch
+
+" Disable error bells
+set noerrorbells
+
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists("&undodir")
+    set undodir=~/.vim/undo
+endif

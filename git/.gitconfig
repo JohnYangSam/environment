@@ -1,0 +1,39 @@
+[include]
+  path = ~/.gitconfig-local
+
+[push]
+  default = simple
+
+[alias]
+  a = add
+  ai = add --interactive
+
+  c = commit
+  cm = commit -m
+  cam = commit -a -m
+  ca = commit --amend           # prompt for message
+  cac = commit --amend -C HEAD  # do not prompt for message
+
+  rs = reset
+  rsh = reset --hard
+
+  rb = rebase
+  rbi = rebase --interactive
+
+  s = status
+  d = diff
+  co = checkout
+
+  # Clone a repo and all submodules
+  cl = clone --recursive #
+  b = branch
+  l = log
+
+  f = fetch
+  ps = push
+  pl = pull
+  plr = pull --rebase
+
+[color]
+  # Enable color
+  ui = auto

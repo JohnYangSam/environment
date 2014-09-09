@@ -1,0 +1,77 @@
+# Install command-line tools using Homebrew
+# Usage: `brew bundle Brewfile`
+# Borrowed and inspired by: https://github.com/mathiasbynens/dotfiles/blob/master/Brewfile
+
+# Make sure we’re using the latest Homebrew
+update
+
+# Upgrade any already-installed formulae
+upgrade
+
+# Install GNU core utilities (those that come with OS X are outdated)
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+install coreutils
+# Install some other useful utilities like `sponge`
+install moreutils
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
+install findutils
+# Install GNU `sed`, overwriting the built-in `sed`
+install gnu-sed --default-names
+# Install Bash 4
+# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
+install bash
+install bash-completion
+
+# Install wget with IRI support
+install wget --enable-iri
+
+# Install more recent versions of some OS X tools
+install vim --override-system-vi
+install homebrew/dupes/grep
+install homebrew/dupes/screen
+install homebrew/php/php55 --with-gmp
+
+# Macvim
+install macvim
+
+# Install other useful binaries
+install ack
+install git
+install nmap
+install tree
+install ngrep
+install ragel
+
+# Install GNU stow
+install stow
+
+# Install android sdks
+install android-sdk
+install android-ndk
+
+# Make, compilers, and heavier utilities
+install cmake
+install gcc
+install ffmpeg
+install openssl
+install wireshark
+install tmux
+
+# Databases
+install sqlite
+install mysql
+install redis
+
+# Node nvm
+install nvm
+
+# Python pyenv
+install pyenv
+
+# RVM needs to be installed directly
+
+# Install Brew Cask
+install brew-cask
+
+# Remove outdated versions from the cellar
+cleanup

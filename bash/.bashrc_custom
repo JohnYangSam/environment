@@ -1,0 +1,209 @@
+# Custom .bashrc configuration file. This should be sourced from
+# .bashrc
+
+if [[ $- != *i* ]] ; then
+    # Shell is non-interactive, return now.
+    return
+fi
+
+# Set vim as the default editor
+export EDITOR="vim";
+
+# General Unix aliases
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Safety
+alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -i"
+set -o noclobber
+
+# Directories, listings, and movement
+alias ls='ls -G'
+alias ll="ls -alrtFG"
+alias la="ls -AG"
+alias l="ls -CFG"
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'" # List only directories
+alias m='less'
+alias ..='cd ..'
+alias ...='cd ..;cd ..'
+alias md='mkdir'
+alias cl='clear'
+alias du='du -ch'
+alias tree='tree -A -C'
+alias treeacl='tree -A -C -L 2'
+alias countfiles='for t in files links directories; do echo `find . -type ${t:0:1} | wc -l` $t; done 2> /dev/null'
+
+# grep options
+export GREP_OPTIONS='--color=auto' # default grep colorization
+export GREP_COLOR='1;31'           # set color to green
+
+# sorting options
+# Keep GNU sort cross-platform sorting behavior
+# According to: http://www.gnu.org/software/coreutils/faq/coreutils-faq.html#Sort-does-not-sort-in-normal-order_0021
+unset LANG
+export LC_ALL=POSIX
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# MYSQL automatic root
+alias mysqlu='mysql -u root'
+
+# tmux aliases
+alias tma='tmux attach -d -t'
+alias git-tmux='tmux new -s $(basename $(pwd))'
+
+# git shortcut
+alias g='git'
+
+# alias for valgrind leak checking on C programs
+alias valgrindleak='valgrind --leak-check=full --show-reachable=yes'
+
+# Helpful tools
+
+# server the current directory locally
+alias servedir='python -m SimpleHTTPServer'
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# URL-encode a string
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# Merge PDF files
+# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
+alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+
+# Kill all the tabs in Chrome to free memory
+# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"
+
+# Mac specific volume aliases
+if [[ `uname` == 'Darwin' ]]; then
+    # See http://xkcd.com/530/
+    alias stfu="osascript -e 'set volume output muted true'"
+    alias pumpitup="osascript -e 'set volume 7'"
+fi
+
+# Homebrew path fix (to use homebrew over system)
+export PATH=/usr/local/bin:$PATH
+
+# Override outdated OS X utils with GNU utils
+export PATH=`$(brew --prefix coreutils)/libexec/gnubin`:$PATH
+
+# Link Homebrew casks in `/Applications` rather than `~/Applications`
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Add tab completion for more Bash commands
+if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+    source "$(bash_completionrew --prefix)/etc/bash_completion";
+elif [ -f /etc/bash_completion ]; then
+    source /etc/bash_completion;
+fi;
+
+# OS X has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# OS X has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+# Export local bin path
+export PATH=$PATH:$HOME/bin
+
+# Add cwd (i.e. ".") to path
+export PATH=$PATH:.
+
+# Node nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Use node
+nvm use v0.10.29 > /dev/null # pipe to /dev/null to remove printout
+
+# Ruby nvm
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+
+# Android
+export ANDROID_HOME=/usr/local/Cellar/android-sdk/23.0.2
+export ANDROID_NDK=/usr/local/Cellar/android-ndk/r9d/
+
+alias astudio='/Applications/Android\ Studio.app/Contents/MacOS/studio &'
+export EDITOR=vim # so that arc uses vim as an editor
+
+# Java Home
+# Use specific path according to: http://stackoverflow.com/questions/6588390/where-is-java-home-on-osx-lion-10-7-mountain-lion-10-8-or-mavericks-10-9
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+# Gradle
+export GRADLE_HOME=$HOME/bin/gradle-1.12
+# Executed ln -s $HOME/bin/gradle-1.12/bin/gradle $HOME/bin/gradle
+
+alias gradled='gradle --daemon' # Run gradle with a daemon to speed it up
+
+# Python
+
+# pyenv
+# From http://davebehnke.com/python-pyenv-ubuntu.html
+export PYENV_ROOT="${HOME}/.pyenv"
+
+if [ -d "${PYENV_ROOT}" ]; then
+  export PATH="${PYENV_ROOT}/bin:${PATH}"
+  eval "$(pyenv init -)"
+fi
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+export PATH=/$HOME/.pyenv/shims:$PATH
+
+# virtualenv
+# you'll need to reinstall each time you update pyenv
+#VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python  #Set virtualenv python
+source /usr/local/bin/virtualenvwrapper.sh      #Set virtualenv wrapper
+
+# repl autocompletion
+export PYTHONSTARTUP=$HOME/.pythonrc.py
+
+#bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+      . $(brew --prefix)/etc/bash_completion
+fi
+
+#git bash enhancer
+# Set git autocompletion and PS1 integration
+alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
+if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
+    . /usr/local/git/contrib/completion/git-completion.bash
+fi
+GIT_PS1_SHOWDIRTYSTATE=true
+
+PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+
+# git autocompletion
+source $HOME/.git-completion.bash
+
+# Docker
+#export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
+export DOCKER_HOST=tcp://192.168.59.103:2375
+
+# wireshark on Mac
+if [[ `uname` == 'Darwin' ]]; then
+    alias wireshark=wireshark-qt
+fi
+
+# MYSQL Homebrew Root PWD
+#export MYSQL_ROOT_PASSWORD=''
+
+# Haskell platform
+export PATH=$PATH:$HOME/.cabal/bin
+
+### Heroku Toolbelt
+export PATH="$PATH:/usr/local/heroku/bin"
