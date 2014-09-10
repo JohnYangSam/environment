@@ -17,6 +17,9 @@ function install_ask {
 # Check if we have a Mac
 if [[ `uname` == 'Darwin' ]]; then
     if install_ask "homebrew and GNU stow (required)"; then
+        # Install xcode commandline developer tools
+        xcode-select --install
+
         # Install homebrew
         ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
         brew install stow
