@@ -10,7 +10,7 @@ let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-colorscheme solarized
+" colorscheme solarized set this after plugins
 
 " Font
 set guifont=Monaco:h13
@@ -20,8 +20,8 @@ set ruler          " Always show current position
 set cul            " Highlight current line
 set hlsearch       " Highlight search
 set cmdheight=2    " The commandbar height
-set relativenumber " Relative line numbers
-set number
+" set relativenumber " Relative line numbers
+set number         " Show line numbers"
 set nohidden       " Don't unload buffer when opening a file after changes haven't been saved. See: http://usevim.com/2012/10/19/vim101-set-hidden/
 set nolazyredraw   " Don't redraw while executing macros
 set showmatch      " Show matching bracets when text indicator is over them

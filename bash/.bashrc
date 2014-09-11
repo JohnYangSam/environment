@@ -6,3 +6,5 @@
 # .bashrc configurations that might need to be tweaked on
 # a per a machine basis
 source "$HOME/.bashrc_custom"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -13,6 +13,9 @@
 " or Command run bin/neoinstall or vim +NeoBundleInstall +qall
 "
 
+" Note: Skip initialization for vim-tiny or vim-small
+if !1 | finish | endif
+
 if has('vim_starting')
     set nocompatible " Use Vim instead of Vi defaults
 
@@ -35,7 +38,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Plugins can be found on github by their URLs
 " Bundle '<name here>' -> https://github.com/<name here>
 
-NeoBundle 'Shougo/vimproc.vim', {           " Allows for install/update asyncronously in the Unite Interface
+" Allows for install/update asyncronously in the Unite Interface
+NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'windows' : 'tools\\update-dll-mingw',
       \     'cygwin' : 'make -f make_cygwin.mak',
@@ -45,6 +49,7 @@ NeoBundle 'Shougo/vimproc.vim', {           " Allows for install/update asyncron
       \ }
 
 " From https://github.com/treasonx/environment/blob/master/vim/plugins.vim
+NeoBundle 'Shougo/unite.vim'                    " Used to search and display arbitrary files
 NeoBundle 'vim-scripts/L9'                      " VIMScript Programming Libraries
 NeoBundle 'MarcWeber/vim-addon-mw-utils'        " VIMScript utils
 NeoBundle 'tomtom/tlib_vim'                     " VIMScript tlib utils
@@ -52,7 +57,7 @@ NeoBundle 'scrooloose/nerdtree'                 " NERDTree File Manager
 NeoBundle 'scrooloose/syntastic'                " Static Analysis for a variety of langauges. See https://github.com/scrooloose/syntastic for configuration
 NeoBundle 'vim-scripts/matchit.zip'             " Auto insert closing character
 NeoBundle 'kien/ctrlp.vim'                      " Fuzzy File Finder
-NeoBundle 'altercatiocvim-colors-solarized'     " Solarized Color Scheme
+NeoBundle 'altercation/vim-colors-solarized'    " Solarized Color Scheme
 NeoBundle 'tpope/vim-fugitive'                  " Git tools
 NeoBundle 'nvie/vim-togglemouse'                " Allow for mouse toggling
 NeoBundle 'Raimondi/delimitMate'                " Closing characters a related delimiters
@@ -80,36 +85,36 @@ NeoBundle 'honza/vim-snippets'                  " Standard snippet library
 NeoBundle 'mileszs/ack.vim'                     " Ack plugin
 NeoBundle 'jeetsukumaran/vim-buffergator'       " `<leader>b` (`\b`) to open a window listing all buffers
 NeoBundle 'ap/vim-css-color'                    " Vim color for CSS
-" Included above " NeoBundle 'kien/ctrlp.vim'                      " Fuzzy File Finder
-" Included above " NeoBundle 'tpope/vim-dispatch'                  " For Vim compilers
+" Included above NeoBundle 'kien/ctrlp.vim'                      " Fuzzy File Finder
+" Included above NeoBundle 'tpope/vim-dispatch'                  " For Vim compilers
 NeoBundle 'Lokaltog/vim-easymotion'             " Easier motions in vim: https://github.com/Lokaltog/vim-easymotion
 NeoBundle 'tpope/vim-endwise'                   " Helps with certain structures like if...endif
-NeoBundle 'tpope/vim-eununch'                   " Vim sugar for Unix shell commands. See: https://github.com/tpope/vim-eunuch
-" Included above " NeoBundle 'tpope/vim-fugitive'                  " Git tools
+NeoBundle 'tpope/vim-eunuch'                    " Vim sugar for Unix shell commands. See: https://github.com/tpope/vim-eunuch
+" Included above NeoBundle 'tpope/vim-fugitive'                  " Git tools
 NeoBundle 'mattn/gist-vim',{'depends': 'mattn/webapi-vim'} " Vim scripts for creating gists. See: https://github.com/mattn/gist-vim
 NeoBundle 'sjl/gundo.vim'                       " Visualize your undo tree: https://github.com/sjl/gundo.vim
 NeoBundle 'michaeljsmith/vim-indent-object'     " Helpful for vim/python scripts
 NeoBundle 'rgarver/Kwbd.vim'                    " Add a buffer close to vim that doesn't close the window: https://github.com/rgarver/Kwbd.vim
-" Included above " NeoBundle 'vim-scripts/matchit.zip'             " Auto insert closing character
+" Included above NeoBundle 'vim-scripts/matchit.zip'             " Auto insert closing character
 NeoBundle 'terryma/vim-multiple-cursors'        " Multiple cursors like Sublime
 NeoBundle 'chrisbra/NrrwRgn'                    " Narrow view. :NR -Open a select region in a new window and other narrow commands: https://github.com/chrisbra/NrrwRgn
-" Included above " NeoBundle 'scrooloose/nerdcommenter.git'        " Better code commenting
-" Included above " NeoBundle 'scrooloose/nerdtree'                 " NERDTree File Manager
+" Included above NeoBundle 'scrooloose/nerdcommenter.git'        " Better code commenting
+" Included above NeoBundle 'scrooloose/nerdtree'                 " NERDTree File Manager
 NeoBundle 'tpope/vim-repeat'                    " Helps for plugins to hooks into .
-" Included above " NeoBundle 'garbas/vim-snipmate'                 " Snippet Expand
+" Included above NeoBundle 'garbas/vim-snipmate'                 " Snippet Expand
 NeoBundle 'ervandew/supertab'                   " Tab completion - may conflict with other plugins
 NeoBundle 'tpope/vim-surround'                  " Helps with vim surroundings
-" Included above " NeoBundle 'scrooloose/syntastic'                " Static Analysis for a variety of langauges. See https://github.com/scrooloose/syntastic for configuration
+" Included above NeoBundle 'scrooloose/syntastic'                " Static Analysis for a variety of langauges. See https://github.com/scrooloose/syntastic for configuration
 NeoBundle 'majutsushi/tagbar'
 " Included above " NeoBundle 'tomtom/tlib_vim'                     " VIMScript tlib utils
 NeoBundle 'tpope/vim-unimpaired'                " Complementary mappings
 NeoBundle 'MarcWeber/vim-addon-mw-utils'        " interpret a file by function and cache file automatically: https://github.com/MarcWeber/vim-addon-mw-utils
-" Included above " NeoBundle 'honza/vim-snippets'                  " Standard snippet library
+" Included above NeoBundle 'honza/vim-snippets'                  " Standard snippet library
 NeoBundle 'ntpeters/vim-better-whitespace'      " Highlights trailing whitespace in red and provides :StripWhitespace to fix it
 NeoBundle 'vim-scripts/vimwiki'                 " Personal Wiki for Vim: http://www.vim.org/scripts/script.php?script_id=2226
-NeoBundle 'thinca/vim-visualstart'              " Not quite sure what this does but included in Janus
+NeoBundle 'thinca/vim-visualstar'               " Not quite sure what this does but included in Janus
 NeoBundle 'skalnik/vim-vroom'                   " Allows Ruby test running: https://github.com/skalnik/vim-vroom
-NeoBundle 'mattn/web-api'                       " Vim interface for Web APIs
+" Included in dependencies above NeoBundle 'mattn/web-api'                       " Vim interface for Web APIs
 NeoBundle 'itspriddle/ZoomWin'                  " Zooming: https://github.com/itspriddle/ZoomWin
 
 " Languages
@@ -127,7 +132,7 @@ NeoBundle 'wlangstroth/vim-haskell'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'tpope/vim-liquid'
-NeoBundle 'tpope/vim-markdown'
+" Installed above NeoBundle 'tpope/vim-markdown'
 NeoBundle 'sunaku/vim-ruby-minitest'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'mmalecki/vim-node.js'
@@ -152,6 +157,9 @@ NeoBundle 'hdima/python-syntax'
 call neobundle#end()
 
 filetype plugin indent on " Required
+
+" Load colorscheme after the plugin is loaded
+colorscheme solarized
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.

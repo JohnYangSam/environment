@@ -19,7 +19,7 @@ set shiftround                              " always indent by multiple of shift
 set smarttab                                " uses shiftwidth instead of tab stop at the beginning of lines: https://mail.python.org/pipermail/python-list/2007-September/429072.html
 
 set nowrap                      " don't wrap lines
-set backspace=indent,eol,start  " backspace through everything insert mode
+" set backspace=indent,eol,start  " backspace through everything insert mode
 
 " List chars
 set list                          " show invisible characters
@@ -66,6 +66,9 @@ set wildignore+=*/tmp/librarian/*,*/.vagrant/*,*/.kitchen/*,*/vendor/cookbooks/*
 " Ignore rails temporary asset caches
 set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
 
+" Disable error bells
+set noerrorbells
+
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
 
@@ -80,7 +83,7 @@ else
   " call janus#disable_plugin("ack", "The ack program is not installed")
 endif
 
-" Centralize backups, swapfiles and undo history
+
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")

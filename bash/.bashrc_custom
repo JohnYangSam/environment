@@ -11,7 +11,7 @@ export EDITOR="vim";
 
 # General Unix aliases
 
-# Enable aliases to be sudo’ed
+# Enable aliases to be sudo'ed
 alias sudo='sudo '
 
 # Safety
@@ -101,6 +101,15 @@ export PATH=`$(brew --prefix coreutils)/libexec/gnubin`:$PATH
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Hombrew package tweaks
+
+#GNU utils (prefixed with 'g')
+# Uncomment below to use the real GNU names instead of the 'g' prefixes
+#PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# Add GNU man pages
+MANPATH="$MANPATH:/usr/local/opt/gnu-sed/libexec/gnuman"
 
 # Add tab completion for more Bash commands
 if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
