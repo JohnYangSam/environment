@@ -7,7 +7,7 @@ Setup environment:
 ```ssh
 git clone git@github.com:JohnYangSam/environment.git
 cd environment
-chomd 700 ./setup.sh
+chomd 700 -r ./
 ./setup.sh
 ```
 
