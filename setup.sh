@@ -25,20 +25,20 @@ function is_installed {
 # Check if we have a Mac
 if [[ `uname` == 'Darwin' ]] && ! (is_installed "brew"); then
 
-	  if [ ! -d /Applications/Xcode ]; then
+    if [ ! -d /Applications/Xcode ]; then
         echo " ********************************************************************************* "
         echo " ***** IMPORTANT! Please install Xcode from the App Store before proceeding! ***** "
         echo " ********************************************************************************x "
 
-				echo "Setup exiting early"
+        echo "Setup exiting early"
 
-				exit 1
-		fi
+        exit 1
+    fi
 
 
     if install_ask "homebrew and GNU stow (required)"; then
 
-	echo "You may need to install Xcode Developer CommandLine Tools from the App Store. See: http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-command-line-tools"
+        echo "You may need to install Xcode Developer CommandLine Tools from the App Store. See: http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-command-line-tools"
         # Install xcode commandline developer tools
         # xcode-select --install # This no longer works -- you must download directly
 
