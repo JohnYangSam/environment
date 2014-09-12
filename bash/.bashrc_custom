@@ -86,6 +86,9 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
+# Fix ^H issue
+stty erase ^H
+
 # Mac specific volume aliases
 if [[ `uname` == 'Darwin' ]]; then
     # See http://xkcd.com/530/

@@ -111,7 +111,7 @@ if install_ask "tools and apps"; then
     fi
 
         # Install packages through homebrew
-        sudo brew bundle ./homebrew/Brewfile
+        brew bundle ./homebrew/Brewfile
 
         # Install RVM
         curl -sSL https://get.rvm.io | bash -s stable --ruby
@@ -136,7 +136,7 @@ if install_ask "tools and apps"; then
         # Only install applications if we have installed dev utils
         if install_ask "applications"; then
             # Install applications through homebrew cask
-            sudo brew bundle Caskfile
+            brew bundle Caskfile
         fi
 
         if install_ask "add bash 4 to shells list"; then

@@ -31,7 +31,7 @@ install homebrew/dupes/grep
 install homebrew/dupes/screen
 
 # Fix php install quirk
-taps homebrew/dupes
+tap homebrew/dupes
 update
 upgrade
 
