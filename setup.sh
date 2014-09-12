@@ -215,6 +215,7 @@ if [[ `uname` == 'Darwin' ]]; then
       cp -r ./init/sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
       echo "Please install package control as well: https://sublime.wbond.net/installation"
+      echo "You may need to edit your Preferences file and download some Sublime packages such as Solarized"
     fi
 
     # Android Studio settings on Mac

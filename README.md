@@ -10,14 +10,22 @@ cd environment
 chomd 700 -r ./
 ./setup.sh
 ```
+Note: You may need o
 
 Tear down environment (this only undoes symlinks):
 
-`./teardown.sh`
+`./teardown.sh` (under development)
 
 Update environment:
 
-`./update.sh`
+`./update.sh` (under development)
+
+More effective update is: 
+
+```ssh
+git pull --rebase
+./setup.sh
+```
 
 Inspired and borrowed from the following an other sources around the web:
 
