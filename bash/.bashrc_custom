@@ -115,11 +115,11 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 MANPATH="$MANPATH:/usr/local/opt/gnu-sed/libexec/gnuman"
 
 # Add tab completion for more Bash commands
-if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
-    source "$(bash_completionrew --prefix)/etc/bash_completion";
-elif [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion;
-fi;
+# if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+#    source "$(bash_completionrew --prefix)/etc/bash_completion";
+#elif [ -f /etc/bash_completion ]; then
+#    source /etc/bash_completion;
+#fi;
 
 # OS X has no `md5sum`, so use `md5` as a fallback
 command -v md5sum > /dev/null || alias md5sum="md5"
@@ -139,7 +139,7 @@ source $(brew --prefix nvm)/nvm.sh # for homebrew installed nvm
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm on linux
 
 # Use node
-nvm use v0.10.29 > /dev/null # pipe to /dev/null to remove printout
+nvm use v0.10.31 > /dev/null # pipe to /dev/null to remove printout
 
 # Ruby nvm
 # Load RVM into a shell session *as a function*
@@ -189,7 +189,7 @@ export PYTHONSTARTUP=$HOME/.pythonrc.py
 
 #bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-      . $(brew --prefix)/etc/bash_completion
+    . $(brew --prefix)/etc/bash_completion
 fi
 
 #git bash enhancer

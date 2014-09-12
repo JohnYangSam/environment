@@ -16,11 +16,12 @@ cask install vlc 2> /dev/null
 cask install skype 2> /dev/null
 cask install evernote 2> /dev/null
 cask install android-studio 2> /dev/null
-cask install atext 2> /dev/null
+# cask install atext 2> /dev/null Neet to use MacStore version for License
 cask install haskell-platform 2> /dev/null
 cask install heroku-toolbelt 2> /dev/null
 cask install ngrok 2> /dev/null
 cask install slack 2> /dev/null
 cask install caffeine 2> /dev/null
+cask install selfcontrol 2> /dev/null
 # cask install spotify 2> /dev/null
 # cask install spotifree 2> /dev/null
