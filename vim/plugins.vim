@@ -110,7 +110,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tpope/vim-unimpaired'                " Complementary mappings
 NeoBundle 'MarcWeber/vim-addon-mw-utils'        " interpret a file by function and cache file automatically: https://github.com/MarcWeber/vim-addon-mw-utils
 " Included above NeoBundle 'honza/vim-snippets'                  " Standard snippet library
-NeoBundle 'ntpeters/vim-better-whitespace'      " Highlights trailing whitespace in red and provides :StripWhitespace to fix it
+" NeoBundle 'ntpeters/vim-better-whitespace'      " Highlights trailing whitespace in red and provides :StripWhitespace to fix it
 NeoBundle 'vim-scripts/vimwiki'                 " Personal Wiki for Vim: http://www.vim.org/scripts/script.php?script_id=2226
 NeoBundle 'thinca/vim-visualstar'               " Not quite sure what this does but included in Janus
 NeoBundle 'skalnik/vim-vroom'                   " Allows Ruby test running: https://github.com/skalnik/vim-vroom

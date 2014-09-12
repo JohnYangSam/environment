@@ -1,4 +1,5 @@
 " Borrowed from: https://github.com/treasonx/environment/blob/master/vim/plugin_settings/syntasic.vim
+" NOTE: non-utf-8 encoding may create errors with these settings
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol="✗"
 let g:syntastic_warning_symbol="⚠"

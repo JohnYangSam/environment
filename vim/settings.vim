@@ -12,14 +12,14 @@
 " Tab settings
 set noexpandtab
 set shiftwidth=2                            " spaces per a tab when shifting
-set tabstop=2                               " spaces per a tab when
 set softtabstop=2                           " spaces for a tab in insert mode
+set tabstop=2                               " spaces per a tab when
 au FileType python setl sw=4 sts=4 ts=4 et  " special tabbing for python
 set shiftround                              " always indent by multiple of shiftwidth
 set smarttab                                " uses shiftwidth instead of tab stop at the beginning of lines: https://mail.python.org/pipermail/python-list/2007-September/429072.html
 
-set nowrap                      " don't wrap lines
-" set backspace=indent,eol,start  " backspace through everything insert mode
+set nowrap                        " Don't wrap lines
+set backspace=2                   " Get backspace to work as expected
 
 " List chars
 set list                          " show invisible characters

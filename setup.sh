@@ -172,7 +172,7 @@ if install_ask "vim"; then
     fi
 
     # Install dotfiles for vim
-    stow -t ~/.vim vim
+    stow --target="~/.vim" vim
 
     # Install vim plugins
     vim +NeoBundleInstall +q
@@ -204,14 +204,14 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Sublime settings on Mac
     if install_ask "sublime User and Anaconda settings"; then
-        stow --target-dir='~/Library/Application Support/Sublime Text 3/Packages/User/' ./init/sublime
+        stow --target='~/Library/Application Support/Sublime Text 3/Packages/User/' ./init/sublime
     fi
 
     # Android Studio settings on Mac
     if install_ask "Android Studio settings (will overwrite)"; then
         # TODO: Is it better to extract and stow or or extract directly to the location?
         unzip -o ../settings.jar -d ./init/AndroidStudio/AndroidStudioPreferences # unzip to location and overwrite
-        gnu stow --target-dir='~/Library/Preferences/AndroidStudioBeta/colors/' ./init/AndroidStudio/AndroidStudioPreferences
+        gnu stow --target='~/Library/Preferences/AndroidStudioBeta/colors/' ./init/AndroidStudio/AndroidStudioPreferences
 
     # Userful post on Resetting Android Studio: http://stackoverflow.com/questions/19384033/how-to-reset-android-studio
 
