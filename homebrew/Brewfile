@@ -82,7 +82,7 @@ install pyenv
 # RVM needs to be installed directly
 
 # Install Brew Cask
-install brew-cask
+install cask
 
 # Remove outdated versions from the cellar
 cleanup

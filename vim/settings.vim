@@ -10,7 +10,7 @@
 "
 
 " Tab settings
-set noexpandtab
+set expandtab                               " convert tabs to spaces
 set shiftwidth=2                            " spaces per a tab when shifting
 set softtabstop=2                           " spaces for a tab in insert mode
 set tabstop=2                               " spaces per a tab when
