@@ -8,3 +8,9 @@ stow -D git
 stow -D ssh
 stow -D tmux
 stow -D vim
+
+# Unstows for Mac
+if [ `uname` == 'Darwin']; then
+	stow -D ./init/sublime
+	stow -D ./init/AndroidStudio/AndroidStudioPreferences
+fi
