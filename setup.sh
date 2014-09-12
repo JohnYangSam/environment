@@ -130,8 +130,8 @@ if install_ask "tools and apps"; then
             pyenv install 2.7.8
             pyenv global 2.7.8
         fi
-        pip install virtualenv
-        pip install virtualenvwrapper
+        # pyenv-virtualwrapper will let us use virtualenvwrapper with the current pyenv version
+        brew install pyenv-virtualenvwrapper
         # Already added to bash # source `which virtualenvwrapper.sh` >> ~/.bash_profile
 
         # Install packages through homebrew
@@ -188,29 +188,25 @@ if install_ask "vim"; then
     # Install vim plugins
     vim +NeoBundleInstall +q
 
+    # Avoid this plugin for the moment since it does not work well with pyenv
     # Install YouCompleteMe
-    ~/.vim/bundle/YouCompleteMe/install.sh --clang-completer
+    #~/.vim/bundle/YouCompleteMe/install.sh --clang-completer
 fi
 
 # Mac Specific installs
 if [[ `uname` == 'Darwin' ]]; then
 
-    if install_ask "osx"; then
-        chmod 700 ./osx/defaults.sh
-        ./osx/defaults.sh
+    if install_ask "enable trim"; then
+        chmod 700 ./osx/trim_enabler.sh
+        ./osx/trim_enabler.sh
+    fi
 
-        if install_ask "enable trim"; then
-            chmod 700 ./osx/trim_enabler.sh
-            ./osx/trim_enabler.sh
-        fi
+    if install_ask "fonts"; then
+        open osx/fonts/*
+    fi
 
-        if install_ask "fonts"; then
-            open osx/fonts/*
-        fi
-
-        if install_ask "iterm"; then
-            open osx/iterm/*
-        fi
+    if install_ask "iterm"; then
+        open osx/iterm/*
     fi
 
     # Sublime settings on Mac
@@ -227,5 +223,11 @@ if [[ `uname` == 'Darwin' ]]; then
     # Userful post on Resetting Android Studio: http://stackoverflow.com/questions/19384033/how-to-reset-android-studio
 
     fi
+
+    if install_ask "osx"; then
+        chmod 700 ./osx/defaults.sh
+        ./osx/defaults.sh
+    fi
+
 fi
 

@@ -129,6 +129,9 @@ cp --parents -r init/Preferences.sublime-settings ~/Library/Application\ Support
 # Kill affected applications                                                  #
 ###############################################################################
 
+echo "Mac OSX defaults finished installing. The terminal and effected apps will now show down to restart [Press any key to continue]"
+read
+
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
     "Dock" "Finder" "Messages" "SystemUIServer" \
     "Terminal" "iCal"; do

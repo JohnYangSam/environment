@@ -100,7 +100,7 @@ fi
 export PATH=/usr/local/bin:$PATH
 
 # Override outdated OS X utils with GNU utils
-export PATH=`$(brew --prefix coreutils)/libexec/gnubin`:$PATH
+export PATH="$(brew --prefix coreutils)/libexec/gnubin":$PATH
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -179,8 +179,10 @@ export PATH=/$HOME/.pyenv/shims:$PATH
 
 # virtualenv
 # you'll need to reinstall each time you update pyenv
-#VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python  #Set virtualenv python
-source /usr/local/bin/virtualenvwrapper.sh      #Set virtualenv wrapper
+#VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python  # Set virtualenv python
+# source /usr/local/bin/virtualenvwrapper.sh     # If installed from Homebrew
+pyenv virtualenvwrapper                          # If pyenv-virtualenvwrapper is installed
+
 
 # repl autocompletion
 export PYTHONSTARTUP=$HOME/.pythonrc.py
@@ -220,7 +222,6 @@ export PATH=$PATH:$HOME/.cabal/bin
 
 ### Heroku Toolbelt
 export PATH="$PATH:/usr/local/heroku/bin"
-
 
 ### Databases
 
