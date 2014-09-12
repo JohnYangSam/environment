@@ -187,7 +187,8 @@ if install_ask "vim"; then
     # Install dotfiles for vim
     stow -t ~/.vim vim
     # Link in the .vimrc
-    ln -s vim/.vimrc ~/.vimrc
+    dir=`pwd`
+    ln -s "$dir/vim/.vimrc" ~/.vimrc
 
     # Install vim plugins
     vim +NeoBundleInstall +q
