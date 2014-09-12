@@ -108,7 +108,7 @@ if install_ask "tools and apps"; then
         # Install homebrew package manager for mac
         if ! (is_installed "brew"); then
             ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-	fi
+    fi
 
         # Install packages through homebrew
         sudo brew bundle ./homebrew/Brewfile
@@ -163,14 +163,14 @@ fi
 
 if install_ask "vim"; then
     # Create Centralize backups, swapfiles and undo history
-		if [ ! -d ~/.vim/backups ]; then
+    if [ ! -d ~/.vim/backups ]; then
         mkdir -p ~/.vim/backups
         chmod 700 ~/.vim/backups
-		fi
-		if [ ! -d ~/.vim/swapsj ]; then
+    fi
+    if [ ! -d ~/.vim/swapsj ]; then
         mkdir -p ~/.vim/swaps
         chmod 700 ~/.vim/swaps
-		fi
+    fi
 
     # Bootstrap vim plugin manager
     if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
@@ -184,8 +184,8 @@ if install_ask "vim"; then
     # Install vim plugins
     vim +NeoBundleInstall +q
 
-		# Install YouCompleteMe
-		~/.vim/bundle/YouCompleteMe/install.sh --clang-completer
+    # Install YouCompleteMe
+    ~/.vim/bundle/YouCompleteMe/install.sh --clang-completer
 fi
 
 # Mac Specific installs
@@ -196,7 +196,7 @@ if [[ `uname` == 'Darwin' ]]; then
         ./osx/defaults.sh
 
         if install_ask "enable trim"; then
-	          chmod 700 ./osx/trim_enabler.sh
+            chmod 700 ./osx/trim_enabler.sh
             ./osx/trim_enabler.sh
         fi
 
