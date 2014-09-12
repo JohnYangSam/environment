@@ -211,16 +211,22 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Sublime settings on Mac
     if install_ask "sublime User and Anaconda settings"; then
-        stow -t ~/Library/Application Support/Sublime Text 3/Packages/User ./init/sublime
+      mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+      cp -r ./init/sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+
+      echo "Please install package control as well: https://sublime.wbond.net/installation"
     fi
 
     # Android Studio settings on Mac
-    if install_ask "Android Studio settings (will overwrite)"; then
-        # TODO: Is it better to extract and stow or or extract directly to the location?
-        unzip -o ../settings.jar -d ./init/AndroidStudio/AndroidStudioPreferences # unzip to location and overwrite
-        stow -t ~/Library/Preferences/AndroidStudioBeta/colors ./init/AndroidStudio/AndroidStudioPreferences
+    #if install_ask "Android Studio settings (will overwrite)"; then
+    #    # TODO: Is it better to extract and stow or or extract directly to the location?
+    #    mkdir -p ~/Library/Preferences/AndroidStudioBeta
+    #    unzip -o ./init/AndroidStudio/settings.jar -d ./init/AndroidStudio/AndroidStudioPreferences # unzip to location and overwrite
+    #    cp -r ./init/AndroidStudio/AndroidStudioPreferences/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
     # Userful post on Resetting Android Studio: http://stackoverflow.com/questions/19384033/how-to-reset-android-studio
+
+    echo "You can open Android Stuiod and import the Android Studio settings in ./init/AndroidStudio/settings.jar"
 
     fi
 

@@ -9,7 +9,7 @@ cask install java 2> /dev/null
 cask install dropbox 2> /dev/null
 cask install google-chrome 2> /dev/null
 cask install macvim 2> /dev/null
-cask install sublime-text 2> /dev/null
+cask install sublime-text3 2> /dev/null
 cask install the-unarchiver 2> /dev/null
 cask install virtualbox 2> /dev/null
 cask install vlc 2> /dev/null

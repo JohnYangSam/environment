@@ -1,35 +1,32 @@
 {
-    "color_scheme": "Packages/User/Solarized (dark) (SL).tmTheme",
+    "color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
     "default_line_ending": "unix",
     "draw_white_space": "all",
-    "font_face": "Monaco",
-    "font_size": 13,
-    "tab_size": 4,
-    "translate_tabs_to_spaces": true,
-    "highlight_modified_tabs": true,
-    "match_brackets": true,
-    "match_brackets_angle": true,
-
-    "rulers":
-    [
-        80
-    ],
-
-    "ignored_packages":
-    [
-        "Vintage"
-    ],
-
     "file_exclude_patterns":
     [
         ".DS_Store",
         "*.pyc",
         "*.swp"
     ],
-
     "folder_exclude_patterns":
     [
         ".git",
         "node_modules"
     ],
+    "font_face": "Monaco",
+    "font_size": 13,
+    "highlight_modified_tabs": true,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "match_brackets": true,
+    "match_brackets_angle": true,
+    "rulers":
+    [
+        80
+    ],
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true
 }
+

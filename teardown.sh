@@ -11,6 +11,6 @@ stow -D vim
 
 # Unstows for Mac
 if [ `uname` == 'Darwin']; then
-	stow -D ./init/sublime
-	stow -D ./init/AndroidStudio/AndroidStudioPreferences
+  stow -D ./init/sublime
+  stow -D ./init/AndroidStudio/AndroidStudioPreferences
 fi
