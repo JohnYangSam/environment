@@ -10,7 +10,8 @@ cd environment
 chomd 700 -r ./
 ./setup.sh
 ```
-Note: You may need o
+Note: You may need to import settings from the `./init` folder for Android
+Studio, Sublime, and other groups.
 
 Tear down environment (this only undoes symlinks):
 
