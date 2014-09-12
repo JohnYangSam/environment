@@ -135,7 +135,8 @@ export PATH=$PATH:.
 
 # Node nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+source $(brew --prefix nvm)/nvm.sh # for homebrew installed nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm on linux
 
 # Use node
 nvm use v0.10.29 > /dev/null # pipe to /dev/null to remove printout

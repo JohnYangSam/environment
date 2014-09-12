@@ -123,6 +123,7 @@ if install_ask "tools and apps"; then
         rvm use 2.1.2
 
         # Node
+        source $(brew --prefix nvm)/nvm.sh # ensure that nvm is loaded
         nvm install 0.10
         nvm use 0.10
 
