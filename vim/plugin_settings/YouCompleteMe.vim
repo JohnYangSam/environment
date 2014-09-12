@@ -13,3 +13,5 @@ let g:ycm_add_preview_to_completeopt = 0
 " add omnicomplete options
 let g:ycm_cache_omnifunc = 0
 set completeopt-=preview
+
+let g:ycm_path_to_python_interpreter = expand('~/.pyenv/shims/python')

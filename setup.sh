@@ -17,7 +17,7 @@ function install_ask {
 
 # Check is a program is installed
 function is_installed {
-    local result=1 
+    local result=1
     type $1 >/dev/null 2>&1 || { local result=0; }
     echo "$result"
 }
@@ -108,10 +108,7 @@ if install_ask "tools and apps"; then
         # Install homebrew package manager for mac
         if ! (is_installed "brew"); then
             ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-    fi
-
-        # Install packages through homebrew
-        brew bundle ./homebrew/Brewfile
+        fi
 
         # Install RVM
         curl -sSL https://get.rvm.io | bash -s stable --ruby
@@ -128,16 +125,22 @@ if install_ask "tools and apps"; then
         nvm use 0.10
 
         # Python
-        pyenv install 2.7.8
-        pyenv global 2.7.8
+        if ! is_installed "python"; then
+            # IMPORTANT: Need to change YouCompleteMe Compilation when you edit this
+            pyenv install 2.7.8
+            pyenv global 2.7.8
+        fi
         pip install virtualenv
         pip install virtualenvwrapper
         # Already added to bash # source `which virtualenvwrapper.sh` >> ~/.bash_profile
 
+        # Install packages through homebrew
+        brew bundle ./homebrew/Brewfile
+
         # Only install applications if we have installed dev utils
         if install_ask "applications"; then
             # Install applications through homebrew cask
-            brew bundle Caskfile
+            brew bundle ./homebrew/Caskfile
         fi
 
         if install_ask "add bash 4 to shells list"; then
@@ -180,7 +183,7 @@ if install_ask "vim"; then
     fi
 
     # Install dotfiles for vim
-    stow --target="~/.vim" vim
+    stow -t ~/.vim vim
 
     # Install vim plugins
     vim +NeoBundleInstall +q
@@ -212,14 +215,14 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Sublime settings on Mac
     if install_ask "sublime User and Anaconda settings"; then
-        stow --target='~/Library/Application Support/Sublime Text 3/Packages/User/' ./init/sublime
+        stow -t ~/Library/Application Support/Sublime Text 3/Packages/User ./init/sublime
     fi
 
     # Android Studio settings on Mac
     if install_ask "Android Studio settings (will overwrite)"; then
         # TODO: Is it better to extract and stow or or extract directly to the location?
         unzip -o ../settings.jar -d ./init/AndroidStudio/AndroidStudioPreferences # unzip to location and overwrite
-        gnu stow --target='~/Library/Preferences/AndroidStudioBeta/colors/' ./init/AndroidStudio/AndroidStudioPreferences
+        stow -t ~/Library/Preferences/AndroidStudioBeta/colors ./init/AndroidStudio/AndroidStudioPreferences
 
     # Userful post on Resetting Android Studio: http://stackoverflow.com/questions/19384033/how-to-reset-android-studio
 

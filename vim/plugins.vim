@@ -76,7 +76,7 @@ NeoBundle 'edkolev/tmuxline.vim'                " Keeps tmux in sync with airlin
 NeoBundle 'airblade/vim-gitgutter'              " Git status of line changes in the left hand gutter (i.e. +/-)
 NeoBundle 'mattn/emmet-vim'                     " HTML auto complete using Ctrl+y
 NeoBundle 'nathanaelkane/vim-indent-guides'     " Visual indent guides striped odd and even - may need to set colors for terminal
-NeoBundle 'Valloric/YouCompleteMe'              " Autocomplete engine
+" NeoBundle 'Valloric/YouCompleteMe'              " Autocomplete engine - may need compilation tinkering
 NeoBundle 'marijnh/tern_for_vim'                " Contexual code complete for JS
 NeoBundle 'SirVer/ultisnips'                    " Snippets - may need to remap keys - currently <c-tab> in settings
 NeoBundle 'honza/vim-snippets'                  " Standard snippet library
@@ -116,6 +116,10 @@ NeoBundle 'thinca/vim-visualstar'               " Not quite sure what this does 
 NeoBundle 'skalnik/vim-vroom'                   " Allows Ruby test running: https://github.com/skalnik/vim-vroom
 " Included in dependencies above NeoBundle 'mattn/web-api'                       " Vim interface for Web APIs
 NeoBundle 'itspriddle/ZoomWin'                  " Zooming: https://github.com/itspriddle/ZoomWin
+
+" Additional
+NeoBundle 'davidhalter/jedi-vim'                " Ctrl + space python autocomplete
+NeoBundle 'Shougo/neocomplcache.vim'              " 'neo-completion with cache' - keyword completion of current words in buffer see: https://github.com/Shougo/neocomplete.vim
 
 " Languages
 NeoBundle 'vim-scripts/Arduino-syntax-file'

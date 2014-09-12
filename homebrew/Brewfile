@@ -38,7 +38,7 @@ upgrade
 install homebrew/php/php55 --with-gmp
 
 # Macvim
-install macvim
+# install macvim # Standard brew vim installation already installs this
 
 # Install other useful binaries
 install ack
