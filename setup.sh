@@ -19,13 +19,13 @@ function install_ask {
 function is_installed {
     local result=1
     type $1 >/dev/null 2>&1 || { local result=0; }
-    echo "$result"
+    [[ $result == 1 ]]
 }
 
 # Check if we have a Mac
 if [[ `uname` == 'Darwin' ]] && ! (is_installed "brew"); then
 
-    if [ ! -d /Applications/Xcode ]; then
+    if [ ! -d /Applications/Xcode.app ]; then
         echo " ********************************************************************************* "
         echo " ***** IMPORTANT! Please install Xcode from the App Store before proceeding! ***** "
         echo " ********************************************************************************x "
@@ -96,6 +96,13 @@ fi
 
 if install_ask "rvm and ruby"; then
     sudo curl -sSL https://get.rvm.io | bash -s stable --ruby
+    source $HOME/.rvm/scripts/rvm # Load RVM into the shell
+
+    # Install additional language versions
+
+    # Ruby
+    rvm install 2.1.2
+    rvm use 2.1.2
 fi
 
 if install_ask "tools and apps"; then
@@ -110,14 +117,8 @@ if install_ask "tools and apps"; then
             ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
         fi
 
-        # Install RVM
-        curl -sSL https://get.rvm.io | bash -s stable --ruby
-
-        # Install additional language versions
-
-        # Ruby
-        rvm install 2.1.2
-        rvm use 2.1.2
+        # Install packages through homebrew
+        brew bundle ./homebrew/Brewfile
 
         # Node
         source $(brew --prefix nvm)/nvm.sh # ensure that nvm is loaded
@@ -126,16 +127,13 @@ if install_ask "tools and apps"; then
 
         # Python
         if ! is_installed "python"; then
-            # IMPORTANT: Need to change YouCompleteMe Compilation when you edit this
+            # IMPORTANT: Need to change YouCompleteMe Compilation when you edit this if it is enabled (not enabled in this version)
             pyenv install 2.7.8
             pyenv global 2.7.8
         fi
         # pyenv-virtualwrapper will let us use virtualenvwrapper with the current pyenv version
         brew install pyenv-virtualenvwrapper
         # Already added to bash # source `which virtualenvwrapper.sh` >> ~/.bash_profile
-
-        # Install packages through homebrew
-        brew bundle ./homebrew/Brewfile
 
         # Only install applications if we have installed dev utils
         if install_ask "applications"; then
@@ -145,12 +143,15 @@ if install_ask "tools and apps"; then
 
         if install_ask "add bash 4 to shells list"; then
             # Add the installed shell to available shells
-            sudo echo "/usr/local/bin/bash" >> /etc/shells
+            echo "adding '/usr/local/bin/bash' to list of shells (You may need to do this manually)" 
+            echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
 
             # Change the shell for the user to bash 4
-            echo "Changing you shell to bash 4 by using `sudo chsh` and \
-                changing the shell to /usr/local/bin/bash"
-            sudo chsh -s /user/local/bin
+            echo "Changing your shell to bash 4 by using 'sudo chsh'"
+            sudo chsh -s /usr/local/bin/bash
+
+            echo " Press any key to continue after running the above commands"
+            read
         fi
 
         # Solarized terminal
@@ -171,6 +172,7 @@ if install_ask "vim"; then
         mkdir -p ~/.vim/backups
         chmod 700 ~/.vim/backups
     fi
+
     if [ ! -d ~/.vim/swapsj ]; then
         mkdir -p ~/.vim/swaps
         chmod 700 ~/.vim/swaps
@@ -184,6 +186,8 @@ if install_ask "vim"; then
 
     # Install dotfiles for vim
     stow -t ~/.vim vim
+    # Link in the .vimrc
+    ln -s vim/.vimrc ~/.vimrc
 
     # Install vim plugins
     vim +NeoBundleInstall +q
@@ -211,11 +215,11 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Sublime settings on Mac
     if install_ask "sublime User and Anaconda settings"; then
-      mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-      cp -r ./init/sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+        mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+        cp -r ./init/sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
-      echo "Please install package control as well: https://sublime.wbond.net/installation"
-      echo "You may need to edit your Preferences file and download some Sublime packages such as Solarized"
+        echo "Please install package control as well: https://sublime.wbond.net/installation"
+        echo "You may need to edit your Preferences file and download some Sublime packages such as Solarized"
     fi
 
     # Android Studio settings on Mac
@@ -235,6 +239,5 @@ if [[ `uname` == 'Darwin' ]]; then
         chmod 700 ./osx/defaults.sh
         ./osx/defaults.sh
     fi
-
 fi
 

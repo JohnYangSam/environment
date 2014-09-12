@@ -248,4 +248,3 @@ export PATH="$PATH:/usr/local/heroku/bin"
 #     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 # Or, if you don't want/need launchctl, you can just run:
 #     postgres -D /usr/local/var/postgres
-

@@ -35,6 +35,8 @@ tap homebrew/dupes
 update
 upgrade
 
+tap homebrew/dupes
+
 install homebrew/php/php55 --with-gmp
 
 # Macvim
