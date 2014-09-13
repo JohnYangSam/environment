@@ -169,13 +169,13 @@ fi
 if install_ask "vim"; then
     # Create Centralize backups, swapfiles and undo history
     if [ ! -d ~/.vim/backups ]; then
-        mkdir -p ~/.vim/backups
-        chmod 700 ~/.vim/backups
+        mkdir -p ~/.vim/.backups
+        chmod 700 ~/.vim/.backups
     fi
 
     if [ ! -d ~/.vim/swapsj ]; then
-        mkdir -p ~/.vim/swaps
-        chmod 700 ~/.vim/swaps
+        mkdir -p ~/.vim/.swaps
+        chmod 700 ~/.vim/.swaps
     fi
 
     # Bootstrap vim plugin manager
@@ -234,7 +234,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
     echo "You can open Android Stuiod and import the Android Studio settings in ./init/AndroidStudio/settings.jar"
 
-    fi
+    # fi
 
     if install_ask "osx"; then
         chmod 700 ./osx/defaults.sh
