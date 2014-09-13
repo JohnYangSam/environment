@@ -35,3 +35,8 @@ Inspired and borrowed from the following an other sources around the web:
 - [roneilr/dotfiles](https://github.com/roneilr/dotfiles)
 - [cargo8/dotfiles](https://github.com/cargo8/dotfiles)
 - [dotfiles-cs184](https://github.com/JohnYangSam/dotfiles-cs184)
+
+Trouble shooting:
+
+If you run into issues when installing, re-running the broken part of
+the script may fix the issue.
