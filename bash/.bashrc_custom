@@ -150,7 +150,7 @@ export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export ANDROID_HOME=/usr/local/Cellar/android-sdk/23.0.2
 export ANDROID_NDK=/usr/local/Cellar/android-ndk/r9d/
 
-alias astudio='/Applications/Android\ Studio.app/Contents/MacOS/studio &'
+alias astudio='~/Applications/Android\ Studio.app/Contents/MacOS/studio &'
 export EDITOR=vim # so that arc uses vim as an editor
 
 # Java Home
@@ -179,10 +179,13 @@ export PATH=/$HOME/.pyenv/shims:$PATH
 
 # virtualenv
 # you'll need to reinstall each time you update pyenv
+
 #VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python  # Set virtualenv python
 # source /usr/local/bin/virtualenvwrapper.sh     # If installed from Homebrew
 pyenv virtualenvwrapper                          # If pyenv-virtualenvwrapper is installed
 
+# type virtualenvwrapper for useage (after this bash source it will be using the current
+# pyenv pythong for the virtualenv created
 
 # repl autocompletion
 export PYTHONSTARTUP=$HOME/.pythonrc.py

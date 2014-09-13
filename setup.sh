@@ -126,7 +126,7 @@ if install_ask "tools and apps"; then
         nvm use 0.10
 
         # Python
-        if ! is_installed "python"; then
+        if [[ `pyenv global` == 'system' ]]; then
             # IMPORTANT: Need to change YouCompleteMe Compilation when you edit this if it is enabled (not enabled in this version)
             pyenv install 2.7.8
             pyenv global 2.7.8
