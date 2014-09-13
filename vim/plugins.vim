@@ -77,7 +77,7 @@ NeoBundle 'airblade/vim-gitgutter'              " Git status of line changes in 
 NeoBundle 'mattn/emmet-vim'                     " HTML auto complete using Ctrl+y
 NeoBundle 'nathanaelkane/vim-indent-guides'     " Visual indent guides striped odd and even - may need to set colors for terminal
 " NeoBundle 'Valloric/YouCompleteMe'              " Autocomplete engine - may need compilation tinkering
-NeoBundle 'marijnh/tern_for_vim'                " Contexual code complete for JS
+" NeoBundle 'marijnh/tern_for_vim'                " Contexual code complete for JS - TODO: Fix this
 NeoBundle 'SirVer/ultisnips'                    " Snippets - may need to remap keys - currently <c-tab> in settings
 NeoBundle 'honza/vim-snippets'                  " Standard snippet library
 
@@ -149,6 +149,7 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'timcharper/textile.vim'
 NeoBundle 'hdima/python-syntax'
+NeoBundle 'mxw/vim-jsx'
 
 " Test
 
