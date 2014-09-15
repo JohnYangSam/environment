@@ -24,5 +24,6 @@ cask install slack 2> /dev/null
 cask install caffeine 2> /dev/null
 cask install selfcontrol 2> /dev/null
 cask install vagrant 2> /dev/null
+cask install boot2docker 2> /dev/null
 # cask install spotify 2> /dev/null
 # cask install spotifree 2> /dev/null

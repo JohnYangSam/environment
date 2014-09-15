@@ -20,6 +20,10 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
+# Enable key repeat instead of giving a suggestion for an alternate character
+# when holding down a key.
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################

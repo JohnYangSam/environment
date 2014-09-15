@@ -209,8 +209,15 @@ PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[
 source $HOME/.git-completion.bash
 
 # Docker
+
+# If using boot2docker
 #export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
-export DOCKER_HOST=tcp://192.168.59.103:2375
+
+# Standard docker host ip
+#export DOCKER_HOST=tcp://192.168.59.103:2375
+
+# If using docker-osx
+# # No docker_host ip set (it is set by docker-osx)
 
 # wireshark on Mac
 if [[ `uname` == 'Darwin' ]]; then

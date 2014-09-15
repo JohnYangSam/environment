@@ -236,6 +236,17 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # fi
 
+# docker-osx doesn't seem to be working
+    if install_ask "docker-osx and osx fig"; then
+        # docker-osx
+        curl https://raw.githubusercontent.com/noplay/docker-osx/HEAD/docker-osx > /usr/local/bin/docker-osx
+        chmod +x /usr/local/bin/docker-osx
+
+        # osx fig
+        curl -L https://github.com/docker/fig/releases/download/0.5.2/darwin > /usr/local/bin/fig
+        chmod +x /usr/local/bin/fig
+    fi
+
     if install_ask "osx"; then
         chmod 700 ./osx/defaults.sh
         ./osx/defaults.sh
