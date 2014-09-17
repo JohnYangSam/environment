@@ -233,6 +233,10 @@ export PATH=$PATH:$HOME/.cabal/bin
 ### Heroku Toolbelt
 export PATH="$PATH:/usr/local/heroku/bin"
 
+### Development Export Variables
+export SECRET_KEY=test
+export MYSQL_ROOT_PASSWORD=test
+
 ### Databases
 
 # MYSQL server startup

@@ -246,8 +246,10 @@ def comp_disp_matches(substitution, matches, longest_match_length):
 
 def setup_readline():
     """Initialize the readline module."""
-    histpath = os.path.join(os.path.expanduser("~"), ".local", "share",
-                            "python")
+    # Edited to work with pyenv
+    histpath = os.path.join(os.path.expanduser("~"), ".pyenv", "versions",
+                            sys.version.split(' ')[0] , "share")
+
     if sys.version[0] == '2':
         histfile = os.path.join(histpath, "py2hist")
     else:
