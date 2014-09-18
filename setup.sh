@@ -23,7 +23,7 @@ function is_installed {
 }
 
 # Check if we have a Mac
-if [[ `uname` == 'Darwin' ]] && ! (is_installed "brew"); then
+if [[ `uname` == 'Darwin' ]]; then
 
     if [ ! -d /Applications/Xcode.app ]; then
         echo " ********************************************************************************* "
@@ -35,15 +35,16 @@ if [[ `uname` == 'Darwin' ]] && ! (is_installed "brew"); then
         exit 1
     fi
 
-
     if install_ask "homebrew and GNU stow (required)"; then
 
         echo "You may need to install Xcode Developer CommandLine Tools from the App Store. See: http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-command-line-tools"
         # Install xcode commandline developer tools
         # xcode-select --install # This no longer works -- you must download directly
+	if ! (is_installed "brew"); then
+            # Install homebrew
+            ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+        fi
 
-        # Install homebrew
-        ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
         brew install stow
     fi
 
@@ -150,8 +151,9 @@ if install_ask "tools and apps"; then
             echo "Changing your shell to bash 4 by using 'sudo chsh'"
             sudo chsh -s /usr/local/bin/bash
 
-            echo " Press any key to continue after running the above commands"
-            read
+            # The above commands will run and execute what you used to need to do manually
+            # echo " Press any key to continue after running the above commands"
+            # read
         fi
 
         # Solarized terminal
