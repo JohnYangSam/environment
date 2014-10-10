@@ -190,6 +190,9 @@ pyenv virtualenvwrapper                          # If pyenv-virtualenvwrapper is
 # repl autocompletion
 export PYTHONSTARTUP=$HOME/.pythonrc.py
 
+# Allow non homebrew python to find qt
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
 #bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
