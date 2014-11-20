@@ -31,13 +31,13 @@ install homebrew/dupes/grep
 install homebrew/dupes/screen
 
 # Fix php install quirk
-tap homebrew/dupes
-update
-upgrade
+#tap homebrew/dupes
+#update
+#upgrade
 
-tap homebrew/dupes
+#tap homebrew/dupes
 
-install homebrew/php/php55 --with-gmp
+#install homebrew/php/php55 --with-gmp
 
 # Macvim
 # install macvim # Standard brew vim installation already installs this
