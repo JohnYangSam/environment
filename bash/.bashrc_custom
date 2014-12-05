@@ -156,6 +156,7 @@ export EDITOR=vim # so that arc uses vim as an editor
 # Java Home
 # Use specific path according to: http://stackoverflow.com/questions/6588390/where-is-java-home-on-osx-lion-10-7-mountain-lion-10-8-or-mavericks-10-9
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export JDK_HOME=`/usr/libexec/java_home -v 1.8`
 
 # Gradle
 export GRADLE_HOME=$HOME/bin/gradle-1.12
