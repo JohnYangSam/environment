@@ -80,6 +80,11 @@ install qt
 install sip
 install pyqt
 
+#tmate
+update
+tap nviennot/tmate
+install tmate
+
 # Node nvm
 install nvm
 
