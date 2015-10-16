@@ -7,7 +7,7 @@ Setup environment:
 ```ssh
 git clone git@github.com:JohnYangSam/environment.git
 cd environment
-chomd 700 -r ./
+chmod 700 -R ./
 ./setup.sh
 ```
 Note: You may need to import settings from the `./init` folder for Android
