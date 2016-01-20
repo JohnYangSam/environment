@@ -115,7 +115,7 @@ if install_ask "tools and apps"; then
     if [[ `uname` == 'Darwin' ]]; then
         # Install homebrew package manager for mac
         if ! (is_installed "brew"); then
-            ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+            ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         fi
 
         # Install packages through homebrew
