@@ -119,7 +119,8 @@ if install_ask "tools and apps"; then
         fi
 
         # Install packages through homebrew
-        brew bundle ./homebrew/Brewfile
+        ./homebrew/Brewfile
+        #brew bundle ./homebrew/Brewfile
 
         # Node
         source $(brew --prefix nvm)/nvm.sh # ensure that nvm is loaded
@@ -139,7 +140,8 @@ if install_ask "tools and apps"; then
         # Only install applications if we have installed dev utils
         if install_ask "applications"; then
             # Install applications through homebrew cask
-            brew bundle ./homebrew/Caskfile
+            ./homebrew/Caskfile
+            # brew bundle ./homebrew/Caskfile
         fi
 
         if install_ask "add bash 4 to shells list"; then
