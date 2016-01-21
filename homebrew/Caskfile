@@ -2,24 +2,24 @@
 # Usage: `brew bundle Caskfile`
 # Borrowed and inspired by: https://github.com/mathiasbynens/dotfiles/blob/master/Brewfile
 
-install caskroom/cask/brew-cask
-tap caskroom/versions
+brew install caskroom/cask/brew-cask
+brew tap caskroom/versions
 
-cask install java 2> /dev/null
-cask install dropbox 2> /dev/null
-cask install google-chrome 2> /dev/null
-cask install firefox-esr-us 2> /dev/null
-cask install macvim 2> /dev/null
-cask install sublime-text3 2> /dev/null
-cask install the-unarchiver 2> /dev/null
-cask install virtualbox 2> /dev/null
-cask install vlc 2> /dev/null
-cask install skype 2> /dev/null
-cask install evernote 2> /dev/null
-cask install android-studio 2> /dev/null
+brew cask install java 2> /dev/null
+brew cask install dropbox 2> /dev/null
+brew cask install google-chrome 2> /dev/null
+brew cask install firefox-esr-us 2> /dev/null
+brew cask install macvim 2> /dev/null
+brew cask install sublime-text3 2> /dev/null
+brew cask install the-unarchiver 2> /dev/null
+brew cask install virtualbox 2> /dev/null
+brew cask install vlc 2> /dev/null
+brew cask install skype 2> /dev/null
+brew cask install evernote 2> /dev/null
+brew cask install android-studio 2> /dev/null
 # cask install atext 2> /dev/null Neet to use MacStore version for License
-cask install haskell-platform 2> /dev/null
-cask install heroku-toolbelt 2> /dev/null
+brew cask install haskell-platform 2> /dev/null
+brew cask install heroku-toolbelt 2> /dev/null
 cask install ngrok 2> /dev/null
 cask install slack 2> /dev/null
 cask install caffeine 2> /dev/null
