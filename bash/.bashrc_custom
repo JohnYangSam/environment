@@ -139,7 +139,7 @@ source $(brew --prefix nvm)/nvm.sh # for homebrew installed nvm
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm on linux
 
 # Use node
-nvm use v0.10.31 > /dev/null # pipe to /dev/null to remove printout
+nvm use v5.5.0 > /dev/null # pipe to /dev/null to remove printout
 
 # Ruby nvm
 # Load RVM into a shell session *as a function*
