@@ -124,8 +124,8 @@ if install_ask "tools and apps"; then
 
         # Node
         source $(brew --prefix nvm)/nvm.sh # ensure that nvm is loaded
-        nvm install 0.10
-        nvm use 0.10
+        nvm install v5.5.0
+        nvm use v5.5.0
 
         # Python
         if [[ `pyenv global` == 'system' ]]; then
