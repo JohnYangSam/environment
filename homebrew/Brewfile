@@ -61,6 +61,7 @@ brew install android-ndk
 brew install cmake
 brew install gcc
 
+brew install zlib
 brew install ffmpeg
 brew install openssl
 brew install wireshark
