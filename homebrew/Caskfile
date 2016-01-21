@@ -5,27 +5,27 @@
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
-brew cask install java 2> /dev/null
-brew cask install dropbox 2> /dev/null
-brew cask install google-chrome 2> /dev/null
-brew cask install firefox-esr-us 2> /dev/null
-brew cask install macvim 2> /dev/null
-brew cask install sublime-text3 2> /dev/null
-brew cask install the-unarchiver 2> /dev/null
-brew cask install virtualbox 2> /dev/null
-brew cask install vlc 2> /dev/null
-brew cask install skype 2> /dev/null
-brew cask install evernote 2> /dev/null
-brew cask install android-studio 2> /dev/null
-# cask install atext 2> /dev/null Neet to use MacStore version for License
-brew cask install haskell-platform 2> /dev/null
-brew cask install heroku-toolbelt 2> /dev/null
-cask install ngrok 2> /dev/null
-cask install slack 2> /dev/null
-cask install caffeine 2> /dev/null
-cask install selfcontrol 2> /dev/null
-cask install vagrant 2> /dev/null
-cask install boot2docker 2> /dev/null
-cask install licecap 2> /dev/null
+brew cask install java 
+brew cask install dropbox
+brew cask install google-chrome
+brew cask install firefox-esr-us
+brew cask install macvim
+brew cask install sublime-text3
+brew cask install the-unarchiver
+brew cask install virtualbox
+brew cask install vlc
+brew cask install skype
+brew cask install evernote
+brew cask install android-studio
+brew cask install atext
+brew cask install haskell-platform
+brew cask install heroku-toolbelt
+cask install ngrok
+cask install slack
+cask install caffeine
+cask install selfcontrol
+#cask install vagrant
+#cask install boot2docker
+cask install licecap
 # cask install spotify 2> /dev/null
 # cask install spotifree 2> /dev/null
