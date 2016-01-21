@@ -187,6 +187,7 @@ if install_ask "vim"; then
         mkdir -p ~/.vim/bundle
         git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
         ~/.vim/bundle/neobundle.vim/bin/install.sh
+        # You may need to see this to get neobundle working: http://zunermuka.blogspot.com/2015/10/memo-vimbundlevimproclibvimprocmacso-is.html
     fi
 
     # Install dotfiles for vim
