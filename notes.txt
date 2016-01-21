@@ -1,3 +1,9 @@
 # Converting folders of wma to mp3 on mac
 # http://superuser.com/questions/299331/converting-wma-to-mp3-in-bulk-without-changing-directory
 # find . -iname "*.wma" -execdir bash -c 'NAME="{}" && ffmpeg -y -i "$NAME" -ab 192k "${NAME/.wma/.mp3}" && rm "$NAME"' \;
+
+# Deleting files or folders of a specific pattern in a directory
+# http://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di
+# find . -name "*.wma" -type f -delete
+# http://stackoverflow.com/questions/11191475/command-line-piping-find-results-to-rm
+# find . -name *wma* -exec rm -rf {} \; # For directories
