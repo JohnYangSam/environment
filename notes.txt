@@ -1,3 +1,3 @@
-# Converting folders of wmv to mp3 on mac
+# Converting folders of wma to mp3 on mac
 # http://superuser.com/questions/299331/converting-wma-to-mp3-in-bulk-without-changing-directory
 # find . -iname "*.wma" -execdir bash -c 'NAME="{}" && ffmpeg -y -i "$NAME" -ab 192k "${NAME/.wma/.mp3}" && rm "$NAME"' \;
