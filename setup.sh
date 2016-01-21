@@ -160,7 +160,7 @@ if install_ask "tools and apps"; then
 
         # Solarized terminal
         open ./init/Solarized\ Dark.terminal
-        echo "You may want to change your terminal font to Monaco 13pt"
+        echo "You may want to change your terminal font to Monaco 13pt and Monaco for Powerline after you install the correct fonts"
 
     # For Linux `uname` == 'Linux'
     else
