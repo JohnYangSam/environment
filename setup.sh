@@ -42,7 +42,7 @@ if [[ `uname` == 'Darwin' ]]; then
         # xcode-select --install # This no longer works -- you must download directly
 	if ! (is_installed "brew"); then
             # Install homebrew
-            ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+            ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         fi
 
         brew install stow
