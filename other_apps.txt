@@ -35,3 +35,26 @@ Utilities:
 - Caffeine
 - Fluid
 - The Unarchiver
+
+Chrome Extensions:
+------------------------------
+- Disconnect
+- Do Not Track
+- AB
+- Evernote Web Clipper
+- Grammarly
+- Session Buddy
+- Streak
+- Vimeo Repeat & Speed
+
+- ColorZilla
+- Pesticide
+- JSONFormatter
+- LiveReload
+- PerfectPixel
+
+- React Developer Tools
+
+- Muzli
+- Marmoset
+- Postman
