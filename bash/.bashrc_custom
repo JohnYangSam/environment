@@ -170,7 +170,9 @@ alias gradled='gradle --daemon' # Run gradle with a daemon to speed it up
 
 # pyenv
 # From http://davebehnke.com/python-pyenv-ubuntu.html
-export PYENV_ROOT="${HOME}/.pyenv"
+# export PYENV_ROOT="${HOME}/.pyenv"
+# To use homebrew location so that we don't have conflicts                                             
+export PYENV_ROOT=/usr/local/var/pyenv
 
 if [ -d "${PYENV_ROOT}" ]; then
   export PATH="${PYENV_ROOT}/bin:${PATH}"
