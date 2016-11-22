@@ -28,6 +28,8 @@ git pull --rebase
 ./setup.sh
 ```
 
+Vim Powerline Fonts: `https://github.com/powerline/fonts`
+
 Inspired and borrowed from the following an other sources around the web:
 
 - [carlhuda/janus](https://github.com/carlhuda/janus)
