@@ -100,6 +100,7 @@ fi
 export PATH=/usr/local/bin:$PATH
 
 # Override outdated OS X utils with GNU utils
+# This may cause some issues when building and you need mac core untils instead: https://github.com/Homebrew/legacy-homebrew/issues/19238
 export PATH="$(brew --prefix coreutils)/libexec/gnubin":$PATH
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
@@ -196,7 +197,7 @@ pyenv virtualenvwrapper                          # If pyenv-virtualenvwrapper is
 export PYTHONSTARTUP=$HOME/.pythonrc.py
 
 # Allow non homebrew python to find qt
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+#export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
 #bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
