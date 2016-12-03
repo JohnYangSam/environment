@@ -145,7 +145,7 @@ nvm use v5.5.0 > /dev/null # pipe to /dev/null to remove printout
 # Ruby nvm
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Android
 export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.1_1/
