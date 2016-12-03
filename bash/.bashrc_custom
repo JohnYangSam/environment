@@ -148,8 +148,8 @@ nvm use v5.5.0 > /dev/null # pipe to /dev/null to remove printout
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 
 # Android
-export ANDROID_HOME=/usr/local/Cellar/android-sdk/23.0.2
-export ANDROID_NDK=/usr/local/Cellar/android-ndk/r9d/
+export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.1_1/
+export ANDROID_NDK=/usr/local/Cellar/android-ndk/r13b/
 export STUDIO_JDK=$JDK_HOME # Fix for Android Studio JDK issues
 
 alias astudio='~/Applications/Android\ Studio.app/Contents/MacOS/studio &'
@@ -172,7 +172,7 @@ alias gradled='gradle --daemon' # Run gradle with a daemon to speed it up
 # pyenv
 # From http://davebehnke.com/python-pyenv-ubuntu.html
 # export PYENV_ROOT="${HOME}/.pyenv"
-# To use homebrew location so that we don't have conflicts                                             
+# To use homebrew location so that we don't have conflicts
 export PYENV_ROOT=/usr/local/var/pyenv
 
 if [ -d "${PYENV_ROOT}" ]; then
