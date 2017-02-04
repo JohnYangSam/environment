@@ -140,8 +140,9 @@ if install_ask "tools and apps"; then
         # Only install applications if we have installed dev utils
         if install_ask "applications"; then
             # Install applications through homebrew cask
-            ./homebrew/Caskfile
-            # brew bundle ./homebrew/Caskfile
+            #./homebrew/Caskfile
+            echo "This is now deprecated to a 'no op.' You show now manually install your applications."
+	    # brew bundle ./homebrew/Caskfile
         fi
 
         if install_ask "add bash 4 to shells list"; then
