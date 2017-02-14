@@ -38,7 +38,7 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 ###############################################################################
 
 # Save screenshots to the desktop
-defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+#defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
@@ -131,7 +131,7 @@ fi;
 # Kill affected applications                                                  #
 ###############################################################################
 
-echo "Mac OSX defaults finished installing. The terminal and effected apps will now show down to restart [Press any key to continue]"
+echo "Mac OSX defaults finished installing. The terminal and effected apps will now shut down to restart [Press any key to continue]"
 read
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
