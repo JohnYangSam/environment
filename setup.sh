@@ -208,10 +208,11 @@ fi
 # Mac Specific installs
 if [[ `uname` == 'Darwin' ]]; then
 
-    if install_ask "enable trim"; then
-        chmod 700 ./osx/trim_enabler.sh
-        ./osx/trim_enabler.sh
-    fi
+    # Comment out trim to be safe for future laptops
+    #if install_ask "enable trim"; then
+    #    chmod 700 ./osx/trim_enabler.sh
+    #    ./osx/trim_enabler.sh
+    #fi
 
     if install_ask "fonts"; then
         open osx/fonts/*
