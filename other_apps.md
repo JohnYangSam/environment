@@ -5,6 +5,7 @@ Core:
 - Sublime Text
 - Evernote
 - Chrome
+- [Keeping You Awake](https://github.com/newmarcel/KeepingYouAwake/releases)
 
 Design:
 ------------------------------
