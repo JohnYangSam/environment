@@ -5,7 +5,6 @@ Core:
 - Sublime Text
 - Evernote
 - Chrome
-- [Keeping You Awake](https://github.com/newmarcel/KeepingYouAwake/releases)
 
 Design:
 ------------------------------
@@ -30,12 +29,11 @@ Communication:
 
 Utilities:
 ------------------------------
-- aText
+- [aText](https://www.trankynam.com/atext/)
 - RescueTime
 - Dropbox
-- Caffeine
+- [Keeping You Awake](https://github.com/newmarcel/KeepingYouAwake/releases)
 - Fluid
-- The Unarchiver
 
 Chrome Extensions:
 ------------------------------
