@@ -71,7 +71,8 @@ NeoBundle 'tristen/vim-sparkup'                 " Sparkup for vim HTML. You can 
 NeoBundle 'scrooloose/nerdcommenter.git'        " Better code commenting
 NeoBundle 'rking/ag.vim'                        " Grep files using silversearcher (see settings file)
 NeoBundle 'christoomey/vim-tmux-navigator'      " Navigate vim and tmux splits
-NeoBundle 'bling/vim-airline'                   " Nicer looking status line
+NeoBundle 'vim-airline/vim-airline'                   " Nicer looking status line
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'edkolev/tmuxline.vim'                " Keeps tmux in sync with airline
 NeoBundle 'airblade/vim-gitgutter'              " Git status of line changes in the left hand gutter (i.e. +/-)
 NeoBundle 'mattn/emmet-vim'                     " HTML auto complete using Ctrl+y
