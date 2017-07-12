@@ -140,7 +140,7 @@ source $(brew --prefix nvm)/nvm.sh # for homebrew installed nvm
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm on linux
 
 # Use node
-nvm use v5.5.0 > /dev/null # pipe to /dev/null to remove printout
+nvm use v7.5.0 > /dev/null # pipe to /dev/null to remove printout
 
 # Ruby nvm
 # Load RVM into a shell session *as a function*
@@ -148,8 +148,18 @@ nvm use v5.5.0 > /dev/null # pipe to /dev/null to remove printout
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Android
-export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.1_1/
-export ANDROID_NDK=/usr/local/Cellar/android-ndk/r13b/
+# For homebrew installation
+#export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.1_1/
+#export ANDROID_NDK=/usr/local/Cellar/android-ndk/r13b/
+# For Android Studio installation
+export ANDROID_HOME=~/Library/Android/sdk/
+export ANDROID_NDK=~/Library/Android/sdk/ndk-bundle
+export PATH=$PATH:$ANDROID_HOME/platform-tools/
+export PATH=$PATH:$ANDROID_HOME/tools/
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_NDK/
+export PATH=$PATH:$ANDROID_NDK/build/
+
 export STUDIO_JDK=$JDK_HOME # Fix for Android Studio JDK issues
 
 alias astudio='~/Applications/Android\ Studio.app/Contents/MacOS/studio &'
