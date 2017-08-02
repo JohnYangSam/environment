@@ -52,7 +52,8 @@ brew install nmap
 brew install tree
 brew install ngrep
 brew install ragel
-brew install bfg # To prun git files that are too large (http://bit.ly/2rV1SR6)
+brew install bfg  # To prun git files that are too large (http://bit.ly/2rV1SR6)
+brew grip         # Markdown server
 
 # Install GNU stow
 brew install stow
