@@ -57,3 +57,7 @@ Chrome Extensions:
 - Muzli
 - Marmoset
 - Postman
+
+References & Resources:
+------------------------------
+- [Nikita Voloboev's "My Mac OS"](https://github.com/nikitavoloboev/my-mac-os/)
