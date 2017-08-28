@@ -7,3 +7,7 @@
 # find . -name "*.wma" -type f -delete
 # http://stackoverflow.com/questions/11191475/command-line-piping-find-results-to-rm
 # find . -name *wma* -exec rm -rf {} \; # For directories
+
+# To fix monitor issues with a Display Port to USB-C (or other hardware) a a mac laptop try:
+# Reset NVRAM: https://support.apple.com/en-us/HT204063
+# Reset SMC:   https://support.apple.com/en-us/HT201295
