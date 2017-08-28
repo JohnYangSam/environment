@@ -1,2 +1,2 @@
-.DS_Store                         # Mac file
+*.DS_Store                         # Mac file
 ./init/AndroidStudioPreferences   # AndroidStudio unzipped preferences
