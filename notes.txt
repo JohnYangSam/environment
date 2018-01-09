@@ -11,3 +11,9 @@
 # To fix monitor issues with a Display Port to USB-C (or other hardware) a a mac laptop try:
 # Reset NVRAM: https://support.apple.com/en-us/HT204063
 # Reset SMC:   https://support.apple.com/en-us/HT201295
+
+# Cocao Pods UTF-8 troubleshooting
+# https://stackoverflow.com/questions/17031651/invalid-byte-sequence-in-us-ascii-argument-error-when-i-run-rake-dbseed-in-ra
+
+# Pull all code from Github and push all code to Bitbucket (or vice versa)
+# https://github.com/JohnYangSam/environment/blob/master/misc/gh-to-bb-clone-push.sh
