@@ -1,6 +1,11 @@
 # This script pulls down an repo from a Github url and
 # pushes the entire repo to a Bitubucket url.
 
+# Simpler Alternative for moving between repos based on https://github.com/michaelgwelch/migrate-issues:
+# 1) `git clone <source repository> --mirror`
+# 2) `sed -i.bak s/pull/pr/g .git/packed-refs` # This may not be necessary - see note in source
+# 3) `git push <destination-repository> --mirror`
+
 # User input
 echo "Pull down an entire Github repo and push the entire repo to Bitbucket"
 
