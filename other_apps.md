@@ -34,6 +34,7 @@ Utilities:
 - Dropbox
 - [Keeping You Awake](https://github.com/newmarcel/KeepingYouAwake/releases)
 - Fluid
+- [Charles Proxy](https://www.charlesproxy.com/)
 
 Chrome Extensions:
 ------------------------------
