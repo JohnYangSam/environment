@@ -54,8 +54,10 @@ if [[ `uname` == 'Darwin' ]]; then
         exit 1
     fi
 elif [[ `uname` == 'Linux' ]]; then
+    # Update package repositories
+    sudo apt-get update
     # Install stow on a Linux machine
-    sudo-apt-get -y install stow
+    sudo apt-get -y install stow
 fi
 
 if install_ask "bash"; then
@@ -102,8 +104,8 @@ if install_ask "rvm and ruby"; then
     # Install additional language versions
 
     # Ruby
-    rvm install 2.1.2
-    rvm use 2.1.2
+    rvm install 2.7.0
+    rvm use 2.7.0
 fi
 
 if install_ask "tools and apps"; then
