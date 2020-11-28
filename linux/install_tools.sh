@@ -27,12 +27,11 @@ sudo apt-get -y install wget
 sudo apt-get -y install vim
 sudo apt-get -y install grep
 sudo apt-get -y install screen
-sudo apt-get -y install php5
-sudo apt-get -y install libcurl3 php5-curl # curl
+sudo apt-get -y install curl
+sudo apt-get -y install php libapache2-mod-php
 
 # Vim
 sudo apt-get -y install vim
-sudo apt-get -y install gvim
 
 # Install other userful binaries
 sudo apt-get -y install ack
@@ -63,24 +62,42 @@ sudo apt-get -y install redis-server
 # Additional files (different than Mac Version) from:
 # https://github.com/SiliconValleyInsight/vagrant-dev-box/blob/master/vagrantInit.sh
 
-# Install Python pip manager
-sudo apt-get -y install python-pip
+# Python pyenv (Installer: https://github.com/pyenv/pyenv-installer)
+curl https://pyenv.run | bash
 
-# Install VirtualEnv for python
-sudo pip install virtualenv
+echo "You may need to tweak your python installation"
+# Set up pyenv so we can use it for appropriate installation of pyenv-virtualenvwrapper
+# See .bashrc_custom where the lines below should be added there as well
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
-# put all virtualEnvs in home directory
-sudo pip install virtualenvwrapper
-source `which virtualenvwrapper.sh` >> ~/.bash_profile
+# pyenv-virtualenvwrapper setup https://github.com/pyenv/pyenv-virtualenvwrapper
+# More info at: https://pypi.org/project/virtualenvwrapper/
+# Install latest python with pyenv and set to global
+pyenv install 3.9.0
+pyenv global 3.9.0
 
-# Virtual Env Instructions
+# Install pyenv-virtualenvwrapper: https://github.com/pyenv/pyenv-virtualenvwrapper
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+# (NOTICE: virtualenvwrapper will not work if you remove the python version which is bound to virtualenvwrapper.)
 
-# `mkvirtualenv <name>` # Create VirtualEnv
-# `workon <name>` # Use a given working env
-# `deactivate` # Stop using a given environment
+# pyenv virtualenvwrapper examples
+
+# `mkvirtualenv <name>`                         # Create VirtualEnv
+# `workon <name>`                               # Use a given working env
+# `deactivate`                                  # Stop using a given environment
+
+# pyenv-virtualenv examples (not installed with this script: https://github.com/pyenv/pyenv-virtualenv)
+
+# `pyenv virtualenv <python version> <name>`    # Make an venv
+# `pyenv vitualenvs`                            # List envs
+# `pyenv activate <name>`                       # Activate venv
+# `pyenv deactivate`                            # Deactivate venv
+# `pyenv uninstall <name>`                      # Uninstall venv
 
 # Install git
-sudo apt-get -y install python-software-properties
+sudo apt-get -y install software-properties-common
 sudo add-apt-repository -y ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get -y remove git
@@ -95,14 +112,10 @@ sudo apt-get -y install git
 # git config --global core.editor "vim" # or "emacs"
 # git config --global push.default simple
 
-# Node nvm
+# Node nvm install
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-
-# Python pyenv
-curl https://raw.github.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
-echo "You may need to tweak your python installation"
-echo "export PATH=$HOME/.pyenv/bin/pyenv:\$PATH" >> ~/.bashrc_custom
-
+# Node latest version
+nvm install 15.3.0
 
 # Colors and editors
 export CLICOLOR=1
