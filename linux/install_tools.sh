@@ -133,12 +133,19 @@ source ~/.bash_profile
 nvm install 0.10
 source ~/.bash_profile
 
-# Ruby version manager rvm
-curl -sSL https://get.rvm.io | bash
-source ~/.bash_profile
+# Ruby version manager rvm (https://github.com/rvm/ubuntu_rvm)
+sudo apt-get install software-properties-common
+sudo apt-add-repository -y ppa:rael-gc/rvm
+sudo apt-get update
+sudo apt-get install rvm
+
+# Not needed for Ubuntu (see above instead)
+# curl -sSL https://get.rvm.io | bash
+# source ~/.bash_profile
 
 # echo "source ~/.profile" >> ~/.bash_profile
+echo 'source "/etc/profile.d/rvm.sh"' >> ~/.bashrc
 
-# Install latest Ruby 2.1.2 version
-rvm install 2.1.2
+# Install latest Ruby 2.7.0 version
+rvm install 2.7.0
 sudo gem install bundler
