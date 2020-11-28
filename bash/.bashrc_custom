@@ -36,9 +36,18 @@ alias tree='tree -A -C'
 alias treeacl='tree -A -C -L 2'
 alias countfiles='for t in files links directories; do echo `find . -type ${t:0:1} | wc -l` $t; done 2> /dev/null'
 
-# grep options
-export GREP_OPTIONS='--color=auto' # default grep colorization
-export GREP_COLOR='1;31'           # set color to green
+# grep options (sadly deprecated)
+# export GREP_OPTIONS='--color=auto' # default grep colorization
+
+export GREP_COLOR='1;31'           # set color to green (we can apparently still use this setting)
+
+# Now set grep to an alias w/ options we need to do two things (https://unix.stackexchange.com/questions/351083/colored-grep-output-not-grep-options-not-alias/614340#614340):
+# 1) Set up an alias for our custom grep
+# 2) Set up a fix for xargs so that it works with an alias
+# NOTE: Remove this if you have Unix piping issues
+alias xargs='xargs '
+alias grep='\grep --color=auto'
+
 
 # sorting options
 # Keep GNU sort cross-platform sorting behavior
@@ -96,24 +105,65 @@ if [[ `uname` == 'Darwin' ]]; then
     alias pumpitup="osascript -e 'set volume 7'"
 fi
 
-# Homebrew path fix (to use homebrew over system)
-export PATH=/usr/local/bin:$PATH
+# Mac Specific Homebrew Settings
+if [[ `uname` == 'Darwin' ]]; then
 
-# Override outdated OS X utils with GNU utils
-# This may cause some issues when building and you need mac core untils instead: https://github.com/Homebrew/legacy-homebrew/issues/19238
-export PATH="$(brew --prefix coreutils)/libexec/gnubin":$PATH
+    # Homebrew path fix (to use homebrew over system)
+    export PATH=/usr/local/bin:$PATH
 
-# Link Homebrew casks in `/Applications` rather than `~/Applications`
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+    # Override outdated OS X utils with GNU utils
+    # This may cause some issues when building and you need mac core untils instead: https://github.com/Homebrew/legacy-homebrew/issues/19238
+    export PATH="$(brew --prefix coreutils)/libexec/gnubin":$PATH
 
-# Hombrew package tweaks
+    # Link Homebrew casks in `/Applications` rather than `~/Applications`
+    export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-#GNU utils (prefixed with 'g')
-# Uncomment below to use the real GNU names instead of the 'g' prefixes
-#PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    # Hombrew package tweaks
 
-# Add GNU man pages
-MANPATH="$MANPATH:/usr/local/opt/gnu-sed/libexec/gnuman"
+    #GNU utils (prefixed with 'g')
+    # Uncomment below to use the real GNU names instead of the 'g' prefixes
+    #PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+    # Add GNU man pages
+    MANPATH="$MANPATH:/usr/local/opt/gnu-sed/libexec/gnuman"
+
+    # OS X has no `md5sum`, so use `md5` as a fallback
+    command -v md5sum > /dev/null || alias md5sum="md5"
+
+    # OS X has no `sha1sum`, so use `shasum` as a fallback
+    command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+    # Android
+    # For homebrew installation
+    #export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.1_1/
+    #export ANDROID_NDK=/usr/local/Cellar/android-ndk/r13b/
+    # For Android Studio installation
+    export ANDROID_HOME=~/Library/Android/sdk/
+    export ANDROID_NDK=~/Library/Android/sdk/ndk-bundle
+    export PATH=$PATH:$ANDROID_HOME/platform-tools/
+    export PATH=$PATH:$ANDROID_HOME/tools/
+    export PATH=$PATH:$ANDROID_HOME/tools/bin
+    export PATH=$PATH:$ANDROID_NDK/
+    export PATH=$PATH:$ANDROID_NDK/build/
+
+    export STUDIO_JDK=$JDK_HOME # Fix for Android Studio JDK issues
+
+    alias astudio='~/Applications/Android\ Studio.app/Contents/MacOS/studio &'
+
+    export EDITOR=vim # so that arc uses vim as an editor
+
+    # Java Home
+    # Use specific path according to: http://stackoverflow.com/questions/6588390/where-is-java-home-on-osx-lion-10-7-mountain-lion-10-8-or-mavericks-10-9
+    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+    export JDK_HOME=`/usr/libexec/java_home -v 1.8`
+    export PATH=$JAVA_HOME/bin:$PATH
+
+    # Gradle
+    export GRADLE_HOME=$HOME/bin/gradle-1.12
+    # Executed ln -s $HOME/bin/gradle-1.12/bin/gradle $HOME/bin/gradle
+
+    alias gradled='gradle --daemon' # Run gradle with a daemon to speed it up
+fi
 
 # Add tab completion for more Bash commands
 # if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
@@ -122,12 +172,6 @@ MANPATH="$MANPATH:/usr/local/opt/gnu-sed/libexec/gnuman"
 #    source /etc/bash_completion;
 #fi;
 
-# OS X has no `md5sum`, so use `md5` as a fallback
-command -v md5sum > /dev/null || alias md5sum="md5"
-
-# OS X has no `sha1sum`, so use `shasum` as a fallback
-command -v sha1sum > /dev/null || alias sha1sum="shasum"
-
 # Export local bin path
 export PATH=$PATH:$HOME/bin
 
@@ -135,53 +179,28 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:.
 
 # Node nvm
-export NVM_DIR="$HOME/.nvm"
-source $(brew --prefix nvm)/nvm.sh # for homebrew installed nvm
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm on linux
 
-# Use node
-nvm use v7.5.0 > /dev/null # pipe to /dev/null to remove printout
+if [[ `uname` == 'Darwin' ]]; then      # Mac Specific
+    export NVM_DIR="$HOME/.nvm"
+    source $(brew --prefix nvm)/nvm.sh  # for homebrew installed nvm
+else                                    # Linux
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm on linux
+fi
+
+# Use latest Node
+nvm use v15.3.0 > /dev/null # pipe to /dev/null to remove printout
 
 # Ruby nvm
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# Android
-# For homebrew installation
-#export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.1_1/
-#export ANDROID_NDK=/usr/local/Cellar/android-ndk/r13b/
-# For Android Studio installation
-export ANDROID_HOME=~/Library/Android/sdk/
-export ANDROID_NDK=~/Library/Android/sdk/ndk-bundle
-export PATH=$PATH:$ANDROID_HOME/platform-tools/
-export PATH=$PATH:$ANDROID_HOME/tools/
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_NDK/
-export PATH=$PATH:$ANDROID_NDK/build/
-
-export STUDIO_JDK=$JDK_HOME # Fix for Android Studio JDK issues
-
-alias astudio='~/Applications/Android\ Studio.app/Contents/MacOS/studio &'
-export EDITOR=vim # so that arc uses vim as an editor
-
-# Java Home
-# Use specific path according to: http://stackoverflow.com/questions/6588390/where-is-java-home-on-osx-lion-10-7-mountain-lion-10-8-or-mavericks-10-9
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-export JDK_HOME=`/usr/libexec/java_home -v 1.8`
-export PATH=$JAVA_HOME/bin:$PATH
-
-# Gradle
-export GRADLE_HOME=$HOME/bin/gradle-1.12
-# Executed ln -s $HOME/bin/gradle-1.12/bin/gradle $HOME/bin/gradle
-
-alias gradled='gradle --daemon' # Run gradle with a daemon to speed it up
-
 # Python
 
 # pyenv
 # From http://davebehnke.com/python-pyenv-ubuntu.html
 # export PYENV_ROOT="${HOME}/.pyenv"
+
 # To use homebrew location so that we don't have conflicts
 export PYENV_ROOT=/usr/local/var/pyenv
 
@@ -209,23 +228,25 @@ export PYTHONSTARTUP=$HOME/.pythonrc.py
 # Allow non homebrew python to find qt
 #export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
-#bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+# Mac OSX bash completion
+if [[ `uname` == 'Darwin' ]]; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
+
+    # git bash enhancer
+    # Set git autocompletion and PS1 integration
+    alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
+    if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
+        . /usr/local/git/contrib/completion/git-completion.bash
+    fi
+    GIT_PS1_SHOWDIRTYSTATE=true
+
+    PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+
+    # git autocompletion
+    source $HOME/.git-completion.bash
 fi
-
-#git bash enhancer
-# Set git autocompletion and PS1 integration
-alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
-if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
-    . /usr/local/git/contrib/completion/git-completion.bash
-fi
-GIT_PS1_SHOWDIRTYSTATE=true
-
-PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
-
-# git autocompletion
-source $HOME/.git-completion.bash
 
 # Docker
 
@@ -243,22 +264,23 @@ if [[ `uname` == 'Darwin' ]]; then
     alias wireshark=wireshark-qt
 fi
 
-# MYSQL Homebrew Root PWD
-#export MYSQL_ROOT_PASSWORD=''
-
 # Haskell platform
 export PATH=$PATH:$HOME/.cabal/bin
 
 ### Heroku Toolbelt
 export PATH="$PATH:/usr/local/heroku/bin"
 
-### Development Export Variables
-export SECRET_KEY=test
-export MYSQL_ROOT_PASSWORD=test
+# MYSQL Homebrew Root PWD
+if [[ `uname` == 'Darwin' ]]; then
+    #export MYSQL_ROOT_PASSWORD=''
+    ### Development Export Variables
+    export SECRET_KEY=test
+    export MYSQL_ROOT_PASSWORD=test
+fi
 
 ### Databases
 
-# MYSQL server startup
+# MYSQL server startup for Mac OSX
 # To connect:
 #     mysql -uroot
 
