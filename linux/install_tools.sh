@@ -96,7 +96,7 @@ sudo apt-get -y install git
 # git config --global push.default simple
 
 # Node nvm
-curl https://raw.githubusercontent.com/creationix/nvm/v0.15.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
 # Python pyenv
 curl https://raw.github.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
