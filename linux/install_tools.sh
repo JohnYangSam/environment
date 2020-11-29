@@ -103,6 +103,9 @@ sudo apt-get update
 sudo apt-get -y remove git
 sudo apt-get -y install git
 
+# Install git bash completion
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -P $HOME/
+
 # Setup git
 # git config --global user.name "Your Name"
 # git config --global user.email "your@domain.com"
