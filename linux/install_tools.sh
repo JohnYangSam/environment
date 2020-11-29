@@ -122,22 +122,6 @@ export CLICOLOR=1
 export LSCOLORS=BxHxFxDxCxegedabagacad
 export EDITOR=vim
 
-# Docker
-#sudo apt-get -y install docker.io
-#sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
-curl -sSL https://get.docker.io/ubuntu/ | sudo sh
-sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
-sudo groupadd docker
-sudo gpasswd -a ${USER} docker
-sudo service docker restart
-
-# Test Docker
-# `sudo docker run -i -t ubuntu /bin/bash`
-
-# Install fig
-sudo curl -L https://github.com/docker/fig/releases/download/0.5.2/linux > /usr/local/bin/fig
-sudo chmod +x /usr/local/bin/fig
-
 # Node Version Manager nvm
 curl https://raw.githubusercontent.com/creationix/nvm/v0.12.0/install.sh | bash
 
@@ -167,3 +151,22 @@ echo 'source "/etc/profile.d/rvm.sh"' >> ~/.bashrc
 # Install latest Ruby 2.7.0 version
 rvm install 2.7.0
 sudo gem install bundler
+
+# Install Heroku: https://devcenter.heroku.com/articles/heroku-cli
+sudo curl https://cli-assets.heroku.com/install.sh | sh
+
+# Docker
+#sudo apt-get -y install docker.io
+#sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+curl -sSL https://get.docker.io/ubuntu/ | sudo sh
+sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
+sudo groupadd docker
+sudo gpasswd -a ${USER} docker
+sudo service docker restart
+
+# Test Docker
+# `sudo docker run -i -t ubuntu /bin/bash`
+
+# Install fig
+sudo curl -L https://github.com/docker/fig/releases/download/0.5.2/linux > /usr/local/bin/fig
+sudo chmod +x /usr/local/bin/fig
