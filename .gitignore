@@ -1,2 +1,3 @@
 *.DS_Store                         # Mac file
 ./init/AndroidStudioPreferences   # AndroidStudio unzipped preferences
+./vim-snippets
