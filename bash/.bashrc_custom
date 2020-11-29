@@ -197,8 +197,8 @@ export NVM_DIR="$HOME/.nvm"
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# Use latest Node
-nvm use v15.3.0 > /dev/null # pipe to /dev/null to remove printout
+# Use default Node
+nvm use default > /dev/null # pipe to /dev/null to remove printout
 
 # Python
 
