@@ -9,6 +9,9 @@ fi
 # Set vim as the default editor
 export EDITOR="vim";
 
+# Fix ^? weird character backspace issue on WSL: https://vim.fandom.com/wiki/Backspace_and_delete_problems
+stty erase '^?'
+
 # General Unix aliases
 
 # Enable aliases to be sudo'ed
