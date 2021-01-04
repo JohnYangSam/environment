@@ -40,6 +40,8 @@ Inspired and borrowed from the following an other sources around the web:
 - [cargo8/dotfiles](https://github.com/cargo8/dotfiles)
 - [dotfiles-cs184](https://github.com/JohnYangSam/dotfiles-cs184)
 
+When exploring the darkside on windows, Scott Hasselmans has [https://www.hanselman.com/blog/scott-hanselmans-2021-ultimate-developer-and-power-users-tool-list-for-windows](some good tips for utilities).
+
 ## Trouble shooting:
 If you run into issues when installing, re-running the broken part of
 the script may fix the issue.
